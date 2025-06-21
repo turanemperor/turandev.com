@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const otherParagraph = div.querySelector("p");
           otherParagraph.style.opacity = "0";
           otherParagraph.style.transform = "translateY(20px)";
-          div.style.backgroundColor = "rgb(26, 24, 20)"; // Reset background color
+          div.style.backgroundColor = "rgb(26, 24, 20)";
         }
       });
 
@@ -142,7 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const contents = document.querySelectorAll(".content");
 
   const switchContent = (target) => {
-    s;
     options.forEach((option) => option.classList.remove("active"));
 
     document.querySelector(`[data-target="${target}"]`).classList.add("active");
