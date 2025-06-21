@@ -1,10 +1,7 @@
-/////// Loading
-
 window.addEventListener("load", function () {
   const loader = document.getElementById("loader");
   const content = document.getElementById("content");
 
-  // Fade-out efektiyle loader'ı gizle
   loader.style.transition = "opacity 0.5s ease";
   loader.style.opacity = 0;
 
@@ -27,14 +24,12 @@ btnNavEl.addEventListener("click", function () {
 
 //Services
 document.addEventListener("DOMContentLoaded", function () {
-  const optDivs = document.querySelectorAll(".opt"); // Get all the .opt divs
+  const optDivs = document.querySelectorAll(".opt");
 
   optDivs.forEach((optDiv) => {
     optDiv.addEventListener("click", function () {
-      // Get the paragraph inside the clicked .opt div
       const paragraph = optDiv.querySelector("p");
 
-      // Close all other paragraphs first
       optDivs.forEach((div) => {
         if (div !== optDiv) {
           const otherParagraph = div.querySelector("p");
@@ -44,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // Toggle the clicked paragraph
       if (paragraph.style.opacity === "1") {
         paragraph.style.opacity = "0";
         paragraph.style.transform = "translateY(20px)";
@@ -53,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
         paragraph.style.transform = "translateY(0)";
       }
 
-      // Optionally, change the background color of the clicked .opt div
       optDiv.style.backgroundColor = "orange";
     });
   });
@@ -67,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
       p.style.opacity = 1;
       p.style.transform = "translateY(0)";
     });
-    // Optionally change the background color on click
+
     optDiv.style.backgroundColor = "orange";
   });
 });
@@ -148,27 +141,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const options = document.querySelectorAll(".options");
   const contents = document.querySelectorAll(".content");
 
-  // Function to handle switching content
   const switchContent = (target) => {
-    // Remove active class from all options
+    s;
     options.forEach((option) => option.classList.remove("active"));
-    // Add active class to clicked option
+
     document.querySelector(`[data-target="${target}"]`).classList.add("active");
 
-    // Hide all content sections
     contents.forEach((content) => content.classList.remove("active"));
 
-    // Show the content matching the target
     const activeContent = document.getElementById(target);
     if (activeContent) {
       activeContent.classList.add("active");
     }
   };
 
-  // Set initial content (HTML is active by default)
   switchContent("html");
 
-  // Event listener for option clicks
   options.forEach((option) => {
     option.addEventListener("click", () => {
       const target = option.getAttribute("data-target");
@@ -177,10 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Get the button element
 let scrollUpBtn = document.getElementById("scrollUpBtn");
 
-// When the user scrolls down 200px from the top, show the button
 window.onscroll = function () {
   if (
     document.body.scrollTop > 200 ||
@@ -192,7 +178,6 @@ window.onscroll = function () {
   }
 };
 
-// When the user clicks on the button, scroll to the top of the document
 scrollUpBtn.onclick = function () {
   window.scrollTo({
     top: 0,
