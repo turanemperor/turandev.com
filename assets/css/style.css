@@ -1027,11 +1027,6 @@ h6 {
   background-color: darkorange;
 }
 
-.salam {
-  color: white;
-  font-size: 2rem;
-}
-
 @media only screen and (max-width: 600px) {
   #scrollUpBtn {
     width: 45px;
@@ -1046,4 +1041,61 @@ h6 {
     height: 40px;
     font-size: 18px;
   }
+}
+
+/*Send - error pages*/
+
+.header-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 9.6rem;
+  padding: 0 1.8rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1002;
+}
+
+.send-control {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+}
+
+.send-h1 {
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  z-index: 1003;
+}
+
+.animation-container-send video {
+  height: 20rem;
+  border: 3px solid orange;
+}
+
+.logo-form {
+  color: white;
+  font-size: 3rem;
+  text-decoration: none;
+}
+
+.send-error-button {
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  background-color: orange;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.send-error-button:hover {
+  background-color: orangered;
 }

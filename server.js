@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use("/assets", express.static(path.join(__dirname, "assets")));
+app.use(express.static(__dirname)); // HTML dosyaları için ana klasörü statik yap
 
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
 app.get("/az", (req, res) => res.sendFile(path.join(__dirname, "az.html")));
@@ -24,7 +25,8 @@ app.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).send("Error: " + JSON.stringify(errors.array()));
+      console.log("Validation Errors:", errors.array());
+      return res.redirect("/error.html");
     }
 
     const { name, email, message } = req.body;
@@ -51,15 +53,14 @@ app.post(
 
     try {
       await transporter.sendMail(mailOptions);
-      res.send("Message was sent successfully!");
+      res.redirect("/send.html");
     } catch (err) {
       console.error("Mail sending error:", err);
-      res.status(500).send("Mail was not sent.");
+      res.redirect("/error.html");
     }
   }
 );
 
-// Server başlat
 app.listen(PORT, () => {
   console.log(`Sunucu çalışıyor: http://localhost:${PORT}`);
 });
