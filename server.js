@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use("/assets", express.static(path.join(__dirname, "assets")));
-app.use(express.static(__dirname)); // HTML dosyaları için ana klasörü statik yap
+app.use(express.static(__dirname));
 
 app.get("/", (req, res) => res.sendFile(path.join(__dirname, "index.html")));
 app.get("/az", (req, res) => res.sendFile(path.join(__dirname, "az.html")));
